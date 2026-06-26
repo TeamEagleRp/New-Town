@@ -1,0 +1,232 @@
+/* --- 1. التنسيقات العامة والخطوط --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #2f3136; /* لون احتياطي داكن في حال تأخر تحميل الصورة */
+    color: #f6f6f6;
+    line-height: 1.6;
+}
+
+/* --- 2. شريط التنقل (Navbar) شفاف وخفيف --- */
+header {
+    background-color: rgba(32, 34, 37, 0.4); /* شفافية خفيفة */
+    backdrop-filter: blur(10px); /* تأثير ضبابي زجاجي عصري */
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo span {
+    color: #5865F2; /* لون ديسكورد الأزرق */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #b9bbbe;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* --- 3. قسم محتوى صفحة التعريف المطور مع صورة الخلفية المحددة --- */
+.about-page-content {
+    padding: 140px 20px 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* ربط صـورتـك الـخـاصـة كـخـلـفـيـة مـع تـظـلـيـل نـاعـم */
+    background-image: linear-gradient(135deg, rgba(44, 47, 51, 0.9) 0%, rgba(32, 34, 37, 0.85) 100%), 
+                      url('2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* جعل الخلفية ثابتة أثناء التمرير لمظهر فخم */
+    background-repeat: no-repeat;
+}
+
+/* حاوية المحتوى الزجاجية الفخمة */
+.about-container {
+    background: rgba(54, 57, 63, 0.85); /* خلفية ديسكورد مع شفافية لبروز الصورة خلفها */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    max-width: 900px;
+    width: 100%;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeInContainer 1.2s ease-out;
+}
+
+.about-main-title {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 12px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.about-subtitle {
+    font-size: 19px;
+    color: #5865F2;
+    text-align: center;
+    margin-bottom: 45px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.about-features-title {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(88, 101, 242, 0.3);
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+/* قائمة الميزات والكروت */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 18px;
+    background: rgba(32, 34, 37, 0.75); /* كروت داكنة متباينة وثابتة */
+    padding: 22px;
+    border-radius: 10px;
+    align-items: flex-start;
+    border-right: 4px solid #5865F2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.feature-item:hover {
+    transform: translateX(-5px); /* حركة تفاعلية خفيفة لليمين عند التمرير بالماوس */
+    background: rgba(32, 34, 37, 0.9);
+    box-shadow: 0 6px 20px rgba(88, 101, 242, 0.15);
+}
+
+.feature-num {
+    font-weight: 700;
+    color: #5865F2;
+    font-size: 19px;
+    white-space: nowrap;
+}
+
+.feature-item p {
+    color: #dcddde;
+    font-size: 16.5px;
+    line-height: 1.8;
+}
+
+/* --- 4. التذييل (Footer) --- */
+footer {
+    background-color: #202225;
+    color: #b9bbbe;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+/* --- الحركات والانتقالات --- */
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- التوافق الكامل مع الشاشات الصغيرة (Responsive) --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .nav-links {
+        margin-top: 5px;
+    }
+    .about-page-content {
+        padding-top: 180px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .about-container {
+        padding: 30px 20px;
+    }
+    .about-main-title {
+        font-size: 26px;
+    }
+    .about-subtitle {
+        font-size: 16px;
+    }
+    .about-features-title {
+        font-size: 18px;
+    }
+    .feature-item {
+        padding: 16px;
+    }
+    .feature-item p {
+        font-size: 15px;
+    }
+}

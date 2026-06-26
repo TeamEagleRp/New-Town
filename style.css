@@ -1,0 +1,395 @@
+/* --- 1. التنسيقات العامة والخطوط --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #2f3136; /* لون ديسكورد الداكن المريح */
+    color: #f6f6f6;
+    line-height: 1.6;
+}
+
+/* --- 2. شريط التنقل (Navbar) شفاف وخفيف --- */
+header {
+    background-color: rgba(32, 34, 37, 0.4); /* شفافية خفيفة */
+    backdrop-filter: blur(8px); /* تأثير ضبابي عصري */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px; /* مسافة بين الشعار والنص */
+}
+
+/* تنسيق صورة شعار السيرفر في الهيدر */
+.nav-logo-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo span {
+    color: #5865F2; /* لون ديسكورد الرسمي الأزرق */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #b9bbbe;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* --- 3. القسم الرئيسي (Hero Section) مع تحديث الخلفية إلى صورة --- */
+.hero {
+    height: 100vh;
+    /* وضع صورتك 1.jpg كخلفية مع تظليل داكن فخم مدمج لحماية وضوح الكلمات */
+    background: linear-gradient(135deg, rgba(32, 34, 37, 0.9) 0%, rgba(44, 47, 51, 0.8) 100%), 
+                url('3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* تأثير تثبيت الخلفية عند التحرك */
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    animation: fadeInDown 1s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* صورة ديسكورد في القسم الرئيسي */
+.discord-hero-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.3));
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    margin-bottom: 35px; /* زيادة المساحة لتعويض حذف السطر الوصفي */
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: #5865F2; /* لون زر ديسكورد */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+}
+
+.btn:hover {
+    background-color: #4752C4;
+    transform: translateY(-2px);
+}
+
+/* --- 4. قسم الرئاسة والتعريف --- */
+.services {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+    position: relative;
+    color: #fff;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #5865F2;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* تنسيق منطقة التعريف */
+.about-section {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    padding: 0 15px;
+}
+
+.about-text {
+    font-size: 18px;
+    color: #dcddde;
+    line-height: 1.8;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: #36393f; /* لون الكروت المعتمد في ديسكورد */
+    padding: 40px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.02);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.service-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* تنسيق صورة أبو أحمد المخصصة */
+.programmer-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #5865F2;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 22px;
+}
+
+.service-card p {
+    color: #b9bbbe;
+}
+
+/* كارت المصمم المنفرد في الأسفل */
+.single-card {
+    max-width: 350px;
+    margin: 30px auto 0;
+}
+
+/* --- 5. التذييل (Footer) --- */
+footer {
+    background-color: #202225;
+    color: #b9bbbe;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- الحركات --- */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- التوافق مع الشاشات الصغيرة --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        margin-top: 5px;
+    }
+    .hero-content h1 {
+        font-size: 36px;
+    }
+}
+
+/* معرف القوانين الإضافي الخاص بك */
+#laws {
+    padding: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --- تنسيقات صفحة المصمم الجديدة --- */
+.designer-page-content {
+    padding: 140px 20px 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* وضع الصورة 787.png كخلفية مخصصة لهذه الصفحة مع تظليل ناعم */
+    background: linear-gradient(135deg, rgba(32, 34, 37, 0.85) 0%, rgba(44, 47, 51, 0.8) 100%), 
+                url('777.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* الحاوية الرئيسية الزجاجية للمصمم */
+.designer-container {
+    background: rgba(54, 57, 63, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.designer-title {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.designer-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #5865F2;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* كارت المصمم الفردي بتنسيق مشابه للرئاسة */
+.designer-profile-card {
+    background: #36393f;
+    padding: 35px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.designer-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #5865F2;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+}
+
+.designer-profile-card h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.designer-role {
+    color: #b9bbbe;
+    font-size: 16px;
+}
+
+/* قسم أزرار التواصل للأسفل شوي */
+.contact-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 25px;
+}
+
+.contact-section h3 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* أزرار التواصل المختلفة */
+.btn-discord {
+    background-color: #5865F2;
+}
+
+.btn-discord:hover {
+    background-color: #4752C4;
+}
+
+.btn-email {
+    background-color: #43b581; /* اللون الأخضر الجذاب للتواصل بالبريد */
+}
+
+.btn-email:hover {
+    background-color: #3ca374;
+}
+
+@media (max-width: 480px) {
+    .designer-container {
+        padding: 25px 15px;
+    }
+    .contact-buttons {
+        flex-direction: column;
+    }
+    .contact-buttons .btn {
+        width: 100%;
+    }
+}
